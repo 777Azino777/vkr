@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+<div class="container">
+    <h2>Оставь историю своей зависимости. <p></p>Быть может кто то не повторит твоих ошибок.</h2>
+</div>
+
+
+
+
+{%for tex in text reversed%}
+
+<div class="container " >
+
+<p></p>
+<hr>
+    <div class="row">
+        <div class=" col-md-2 ">Псевдоним:<h3>{{tex.nickname_message}}</h3></div>
+
+        <div class="col-md-10 card">История:<h4 class="">{{tex.text_message}}</h4></div>
+
+    </div>
+    <p></p>
+
+</div>
+
+{%endfor%}
+
+
+
+
+
+<div class="container" >
+    <form action="" method="post">
+         {% csrf_token %}
+        {{ form }}
+
+        <input type="submit" class="button" value="Оставить историю">
+    </form>
+
+</div>
+{% endblock %}

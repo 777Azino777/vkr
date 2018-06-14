@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+{% csrf_token %}
+<div class="container">
+<form class="form-signin" action="/registrform/" method="POST">
+{% csrf_token %}
+    <table>
+
+    {% for field in form %}
+        <tr>
+
+            <td>
+                {{ field.label_tag }}
+
+            </td>
+
+            <td>
+                <hr>
+                <div>
+                    <ul>
+                        {% for error in field.errors %}
+                            <li class="error">errors:{{ error }}</li>
+                        {% endfor %}
+                        {{ field }}
+
+                    </ul>
+
+                </div>
+                <hr>
+            </td>
+
+        </tr>
+
+    {% endfor %}
+</table>
+ <input type="submit" value="Регистрация">
+</form>
+    <a href="/pravila/">Пользовательское соглашение</a>
+</div>
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+<div class="container">
+
+</div>
+{% for article in articles reversed%}
+
+<div class=" container card">
+    <div class="row">
+        <div class="col-4 col-md-2 "></div>
+        <div class="col-10 col-md-8" >
+            <a href="/forum/forum_article/{{ article.id }}"><h1 class="">{{article.article_title}}</h1></a>
+        </div>
+        <div class="col-4 col-md-2" >{{article.article_date}}</div>
+    </div>
+    <div class="row" >
+
+        <h3 class="col-md-10 offset-md-1" > {{article.article_text}}</h3>
+        <div class=""></div>
+    </div>
+
+</div >
+<div class="container">
+    <hr>
+</div>
+
+
+{% endfor%}
+
+
+
+
+            <div class=" row ">
+
+                <nav aria-label="Page navigation example" class="col">
+
+                    <ul class="pagination">
+                        {% if articles.has_previous %}
+                        <li class="page-item"><a class="page-link" href="/forum/{{ articles.previous_page_number }}/">&laquo;</a></li>
+                        {% else %}
+                        <li class="page-item"><a class="page-link" href="">&laquo;</a></li>
+                        {% endif %}
+
+                        {% for page in articles.paginator.page_range %}
+
+                            {% if page == articles.number %}
+                                <li class="page-item"><a class="page-link" href="/forum/{{ page }}/">{{ page }}</a></li>
+                            {% else %}
+                                <li class="page-item"><a class="page-link" href="/forum/{{ page }}/">{{ page }}</a></li>
+                            {% endif %}
+
+                        {% endfor %}
+
+                        {% if articles.has_next %}
+                            <li class="page-item"><a class="page-link" href="/forum/{{ articles.next_page_number }}/">&raquo;</a></li>
+                        {% else %}
+                            <li class="page-item"><a class="page-link" href="">&raquo;</a></li>
+                        {% endif %}
+                    </ul>
+                </nav>
+
+            </div>
+{% endblock %}

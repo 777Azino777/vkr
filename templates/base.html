@@ -1,0 +1,82 @@
+{% load staticfiles %}
+
+<html>
+<head>
+	<title>ООО "Ишимсоцадаптация"</title>
+	<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static '/css/fotorama.css' %}" rel="stylesheet">
+
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% block js %}
+    <script src="{% static 'js/jquery-1.10.2.min.js' %}"></script>
+    <script src="{% static 'js/fotorama.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    {% endblock %}
+</head>
+<body style="background:url({% static 'img/bg-light-4844.png' %});">
+
+<header >
+
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="#">Берег надежды</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item ">
+              <a class="nav-link {{first_pages}}" href="/">Главная <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item {{new_page}}">
+              <a class="nav-link" href="/news/">Новости</a>
+            </li>
+              <li class="nav-item {{photo_page}}">
+              <a class="nav-link" href="/photo/">Фото</a>
+            </li>
+            <li class="nav-item {{forum_page}}">
+              <a class="nav-link " href="/forum/">Форум</a>
+       	   <li class="nav-item ">
+              <a class="nav-link " href="#">Информация</a>
+            </li>
+            <li class="nav-item {{an_page}}">
+              <a class="nav-link " href="/an_ms/">Раскажи свою иторию</a>
+            </li>
+            </li>
+          </ul>
+          <form class="form-inline mt-2 mt-md-0">
+        {% if username %}
+             <a class="btn btn btn-light my-2 my-sm-0" href="/logout/">Выйти ({{ username }})</a>
+        {% else %}
+            <a href="/registrform/" class="btn btn btn-light my-2 my-sm-0" style="margin-right:5px;" type="submit" >Регистрация</a>
+            <a class="btn btn btn-light my-2 my-sm-0" href="/login/">Войти</a>
+        {% endif %}
+          </form>
+        </div>
+      </nav>
+</header>
+
+
+ <main role="main" class="" style="margin-top: 57px; box-shadow: 5px 2px 20px 10px rgba(1, 2, 2, 0.1), 0px 0px 0px 0px  rgba(1, 2, 0, 0), 0px 0px 0px 0px rgba(0, 0, 0, 0); ">
+
+		      <div class="starter-template">
+		         <h1 class="text-center" style="padding-top: 10px; padding-bottom: 10px;">
+			ООО «Ишимсоцадаптация»<br>
+			Проект терапевтическое сообщество<br>
+			«Берег Надежды»</h1>
+
+		      </div>
+
+ </main>
+
+	{% block content %}
+	{% endblock %}
+
+<script type="text/javascript" src="{% static '/js/bootstrap.js' %}"></script>
+<script type="text/javascript" src="{% static '/js/popper.min.js' %}"></script>
+
+<script type="text/javascript" src="{% static '/js/jquery-1.10.2.min.js' %}"></script>
+</body>
+</html>

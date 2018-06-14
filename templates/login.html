@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+<style>
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+.form-signin .checkbox {
+  font-weight: 400;
+}
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+</style>
+<div style="  display: -ms-flexbox; display: flex;
+                              -ms-flex-align: center;
+                              align-items: center;
+                              padding-top: 40px;
+                              padding-bottom: 40px;">
+
+    <form class="form-signin" action="/login/" method="POST">
+        <h1 class="h3 mb-3 font-weight-normal text-center">Авторизация</h1>
+        {% csrf_token %}
+      <input  type="text" name="username" class="form-control" placeholder="Имя пользователя" required autofocus>
+      <input type="password" name="password" class="form-control" style="margin-top: 10px;" placeholder="Пароль" required>
+      <input class="btn btn-lg btn-primary btn-block" type="submit" value="Войти">
+        <a  class="btn btn-lg btn-primary btn-block"href="/registrform/"> Регистрация</a>
+    </form>
+
+
+</div>
+{% endblock %}

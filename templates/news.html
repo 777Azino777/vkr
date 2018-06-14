@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+<div class="container text-center">
+    <h2>Рездел новостей</h2>
+    <h4>Здесь вы всегдана найдете информацию о предстоящих и прошедших мероприятиях</h4>
+</div>
+
+<div class="container " style="border:solid 0px black">
+        {% for test in image_and_text reversed %}
+        <div class="row">
+            <img class="col-md-4" style="border:solid 0px red" src="{{test.image.url}}" width="200px" height="200px">
+            <div class="col-md-8" style="border:solid 0px green">{{test.new_text}}</div>
+        </div>
+    <p></p>
+    <hr>
+    {% endfor %}
+
+</div>
+
+
+
+{% endblock %}

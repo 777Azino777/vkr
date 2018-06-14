@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+
+<div class="container" >
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link " href="/photo/">Разные фото</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/photo/sport/">Спорт зал</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" href="/photo/rooms/">Комнаты</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link " href="/photo/photo_banay/">Баня</a>
+  </li>
+</ul>
+</div>
+<div class="container">
+
+
+  <hr>
+
+    <div class="fotorama" data-width="100%"  data-max-width="100%" data-allowfullscreen="true" data-nav="thumbs">
+      {% for test in image_photo %}
+            <img src="{{test.image.url}}" >
+    {% endfor %}
+    </div>
+
+
+
+  <hr>
+</div>
+
+{% endblock %}
