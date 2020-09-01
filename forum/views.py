@@ -35,7 +35,7 @@ def login_user(request):
             return HttpResponseRedirect('/')
         else:
             args = {}
-            args['login_errors'] = "Неправельный логин или пароль"
+            args['login_errors'] = "Неправильный логин или пароль"
             return render(request,'login.html',args)
     return render(request,'login.html')
 
